@@ -1,0 +1,134 @@
+/* src/components/AddEditTaskForm/AddEditTaskForm.module.css */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.taskForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.inputField,
+.selectField,
+.textArea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.inputField:focus,
+.selectField:focus,
+.textArea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+}
+
+.textArea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.submitButton {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.submitButton:hover {
+  background: #0056b3;
+}
+
+.cancelButton {
+  background: #6c757d;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cancelButton:hover {
+  background: #5a6268;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 600px) {
+  .modalContent {
+    width: 95%;
+    padding: 16px;
+  }
+
+  .taskForm {
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .formGroup label {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+
+  .inputField,
+  .selectField,
+  .textArea {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .submitButton,
+  .cancelButton {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}

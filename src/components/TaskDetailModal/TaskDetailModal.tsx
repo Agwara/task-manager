@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../../redux/store';
 import { updateTask } from '../../redux/tasksSlice';
 import { Task, Status, Priority } from '../../types/Task';
-
+import styles from "./styles.module.css"
 
 interface TaskDetailModalProps {
   taskId: string;
@@ -30,40 +30,42 @@ const TaskDetailModal: React.FC<TaskDetailModalProps> = ({ taskId, onClose }) =>
   };
 
   return (
-    <div role="dialog" aria-modal="true">
-    <div>
-      <h2>{task.title}</h2>
-      <p>{task.description}</p>
-      <p>
+    <div className={styles.modalOverlay}  role="dialog" aria-modal="true">
+    <div className={styles.modalContent}>
+      <h2 className={styles.title}>{task.title}</h2>
+      <p className={styles.description}>{task.description}</p>
+      <p className={styles.dueDate}>
         Due: {new Date(task.dueDate).toLocaleDateString()}
       </p>
-      <div>
+      <div className={styles.formGroup}>
         <label htmlFor="status-select">Status:</label>
         <select
           id="status-select"
           value={status}
           onChange={(e) => setStatus(e.target.value as Status)}
+          className={styles.selectField}
         >
           <option value="to-do">To-Do</option>
           <option value="in-progress">In-Progress</option>
           <option value="done">Done</option>
         </select>
       </div>
-      <div>
+      <div className={styles.formGroup}>
         <label htmlFor="priority-select" >Priority:</label>
         <select
           id="priority-select"
           value={priority}
           onChange={(e) => setPriority(e.target.value as Priority)}
+          className={styles.selectField}
         >
           <option value="low">Low</option>
           <option value="medium">Medium</option>
           <option value="high">High</option>
         </select>
       </div>
-      <div>
-        <button onClick={handleSave}>Save</button>
-        <button onClick={onClose}>Close</button>
+      <div className={styles.buttonGroup}>
+        <button onClick={handleSave} className={styles.saveButton}>Save</button>
+        <button onClick={onClose} className={styles.closeButton}>Close</button>
       </div>
     </div>
   </div>

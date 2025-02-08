@@ -1,5 +1,5 @@
 import React from "react"
-
+import styles from "./styles.module.css"
 
 interface TaskControlProps {
   handleAddTask: () => void;
@@ -24,19 +24,20 @@ const TaskControl:React.FC<TaskControlProps> = ({ handleAddTask,       search,
   setSortBy, }) => {
 
   return (
-    <div >
+    <div className={styles.controls}>
       <input
         type="text"
         placeholder="Search tasks..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         aria-label="Search tasks"
-
+        className={styles.searchInput}
       />
       <select
         value={filterStatus}
         onChange={(e) => setFilterStatus(e.target.value)}
         aria-label="Filter by status"
+        className={styles.select}
       >
         <option value="">All Statuses</option>
         <option value="to-do">To-Do</option>
@@ -47,6 +48,7 @@ const TaskControl:React.FC<TaskControlProps> = ({ handleAddTask,       search,
         value={filterPriority}
         onChange={(e) => setFilterPriority(e.target.value)}
         aria-label="Filter by priority"
+        className={styles.select}
       >
         <option value="">All Priorities</option>
         <option value="low">Low</option>
@@ -57,12 +59,13 @@ const TaskControl:React.FC<TaskControlProps> = ({ handleAddTask,       search,
         value={sortBy}
         onChange={(e) => setSortBy(e.target.value)}
         aria-label="Sort tasks"
+        className={styles.select}
       >
         <option value="">No Sort</option>
         <option value="dueDate">Due Date</option>
         <option value="priority">Priority</option>
       </select>
-      <button onClick={handleAddTask}>Add Task</button>
+      <button className={styles.addTaskButton} onClick={handleAddTask}>Add Task</button>
     </div>
   )
 }

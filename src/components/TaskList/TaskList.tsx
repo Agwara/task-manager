@@ -4,6 +4,7 @@ import TaskItem from '../TaskItem/TaskItem';
 import TaskDetailModal from '../TaskDetailModal/TaskDetailModal';
 import AddEditTaskForm from '../AddEditTaskForm/AddEditTaskForm';
 import TaskControl from '../TaskControl/TaskControl';
+import styles from "./styles.module.css"
 
 const TaskList: React.FC = () => {
   const {
@@ -69,7 +70,7 @@ const TaskList: React.FC = () => {
         setSortBy={setSortBy}
       />
 
-      <ul>
+      <ul className={styles.taskList}>
         {filteredTasks.map((task) => (
           <TaskItem
             key={task.id}

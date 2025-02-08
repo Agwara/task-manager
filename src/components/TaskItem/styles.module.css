@@ -1,0 +1,155 @@
+.taskItem {
+  background: #f8fafa;
+
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.taskItem:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Header with title & priority */
+.taskHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.taskTitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Priority styling */
+.priority {
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.low {
+  background: #d4edda;
+  color: #155724;
+}
+
+.medium {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.high {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* Description */
+.taskDescription {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+/* Metadata */
+.taskMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+/* Due Date */
+.dueDate {
+  font-weight: bold;
+}
+
+/* Status styles */
+.status {
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.to-do {
+  background: #e0f2f1;
+  color: #00695c;
+}
+
+.in-progress {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.done {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+/* Action buttons */
+.taskActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.editButton,
+.deleteButton {
+  border: none;
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.editButton {
+  background: #007bff;
+  color: white;
+}
+
+.editButton:hover {
+  background: #0056b3;
+}
+
+.deleteButton {
+  background: #dc3545;
+  color: white;
+}
+
+.deleteButton:hover {
+  background: #b02a37;
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 768px) {
+  .taskItem {
+    padding: 12px;
+  }
+
+  .taskHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .taskMeta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .taskActions {
+    justify-content: center;
+  }
+}
