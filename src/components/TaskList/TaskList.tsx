@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useTasks } from '../../hooks/useTask';
-import TaskItem from '../TaskItem/TaskItem';
+import DraggableTaskItem from '../DraggableTaskItem/DraggableTaskItem';
 import TaskDetailModal from '../TaskDetailModal/TaskDetailModal';
 import AddEditTaskForm from '../AddEditTaskForm/AddEditTaskForm';
 import TaskControl from '../TaskControl/TaskControl';
@@ -27,8 +27,25 @@ const TaskList: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAddEditOpen, setIsAddEditOpen] = useState(false);
   const [editingTask, setEditingTask] = useState<any>(null);
-  
 
+
+  // Local state to maintain the order for drag-and-drop.
+  const [orderedTasks, setOrderedTasks] = useState(filteredTasks);
+
+  // Function to update task order.
+  const moveTask = useCallback((dragIndex: number, hoverIndex: number) => {
+    const updatedTasks = Array.from(orderedTasks);
+    const [removed] = updatedTasks.splice(dragIndex, 1);
+    updatedTasks.splice(hoverIndex, 0, removed);
+    setOrderedTasks(updatedTasks);
+  }, [orderedTasks]);
+
+  // When filteredTasks changes (e.g., through filtering or sorting), update local order.
+  useEffect(() => {
+    setOrderedTasks(filteredTasks);
+  }, [filteredTasks]);
+
+  
   // Open detail modal when a task is clicked
   const handleTaskClick = useCallback((taskId: string) => {
     setSelectedTask(taskId);
@@ -71,10 +88,12 @@ const TaskList: React.FC = () => {
       />
 
       <ul className={styles.taskList}>
-        {filteredTasks.map((task) => (
-          <TaskItem
+        {orderedTasks.map((task, index) => (
+          <DraggableTaskItem
             key={task.id}
             task={task}
+            index={index}
+            moveTask={moveTask}
             onClick={() => handleTaskClick(task.id)}
             onEdit={() => handleEditTask(task)}
             onDelete={() => deleteTask(task.id)}
