@@ -1,6 +1,6 @@
 // src/components/TaskDetailModal.tsx
-
-import React, { useState } from 'react';
+import React from "react";
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../../redux/store';
 import { updateTask } from '../../redux/tasksSlice';

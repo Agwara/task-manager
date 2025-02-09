@@ -1,8 +1,8 @@
 // src/components/TaskItem.tsx
 
-import React from 'react';
+import React from "react";
 import { Task } from '../../types/Task';
-import styles from "./styles.module.css"
+import styles from "./styles.module.css";
 
 interface TaskItemProps {
   task: Task;

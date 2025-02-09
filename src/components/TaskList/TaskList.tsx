@@ -1,10 +1,12 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useTasks } from '../../hooks/useTask';
 import DraggableTaskItem from '../DraggableTaskItem/DraggableTaskItem';
+// import TaskItem from '../TaskItem/TaskItem';
 import TaskDetailModal from '../TaskDetailModal/TaskDetailModal';
 import AddEditTaskForm from '../AddEditTaskForm/AddEditTaskForm';
 import TaskControl from '../TaskControl/TaskControl';
 import styles from "./styles.module.css"
+import React from "react";
 
 const TaskList: React.FC = () => {
   const {
@@ -100,6 +102,19 @@ const TaskList: React.FC = () => {
           />
         ))}
       </ul>
+
+{/* <ul className={styles.taskList}>
+        {filteredTasks.map((task) => (
+          <TaskItem
+            key={task.id}
+            task={task}
+            onClick={() => handleTaskClick(task.id)}
+            onEdit={() => handleEditTask(task)}
+            onDelete={() => deleteTask(task.id)}
+          />
+        ))}
+      </ul> */}
+      
 
       {isModalOpen && selectedTask && (
         <TaskDetailModal taskId={selectedTask} onClose={handleCloseModal} />

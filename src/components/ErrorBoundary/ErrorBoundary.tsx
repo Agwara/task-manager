@@ -1,6 +1,7 @@
 // src/components/ErrorBoundary.tsx
 
-import React, { ErrorInfo, PropsWithChildren } from 'react';
+import { ErrorInfo, PropsWithChildren } from 'react';
+import React from "react";
 
 interface ErrorBoundaryState {
   hasError: boolean;

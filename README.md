@@ -1,5 +1,3 @@
-We look forward to reviewing your work! Good luck!
-
 CODE DESCRIPTION.
 
 Tech Stack:
@@ -16,9 +14,9 @@ Installation
 - start project with "npm run start"
 
 Core functionality that was completed
-I used custom data because I didn't have time to search for the right API.
 
 - Filtering by status
-- Pagination
+- Sorting
 - Drag and drop
 - Search functinality
+- Wrote test using Jest

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Task, Priority, Status } from '../../types/Task';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './styles.module.css';
-
+import React from "react";
 
 interface AddEditTaskFormProps {
   task?: Task | null;

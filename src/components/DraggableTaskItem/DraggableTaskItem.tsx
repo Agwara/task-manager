@@ -1,11 +1,12 @@
 // src/components/DraggableTaskItem/DraggableTaskItem.tsx
 
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { useDrag, useDrop, DropTargetMonitor } from 'react-dnd';
 import { Identifier, XYCoord } from 'dnd-core';
 import TaskItem from '../TaskItem/TaskItem';
 import { Task } from '../../types/Task';
 import styles from './styles.module.css';
+import React from "react";
 
 interface DraggableTaskItemProps {
   task: Task;

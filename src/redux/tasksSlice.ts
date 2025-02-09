@@ -8,6 +8,11 @@ import { v4 as uuidv4 } from 'uuid';
  */
 const loadTasksFromLocalStorage = (): Task[] => {
   try {
+    if (typeof localStorage === 'undefined') {
+      // If localStorage isn't available, return an empty array or default tasks.
+      return [];
+    }
+    
     const tasksStr = localStorage.getItem('tasks');
     if (tasksStr) {
       // Parse and return existing tasks
